@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import axios from 'axios';
-import { ACCESS_KEY_SHOPIFY } from '../utils/environment-variables';
+import { ACCESS_KEY_SHOPIFY, SHOPIFY_STORE, } from '../utils/environment-variables';
 
 // Post new item
 export const postItem = async (req: Request, res: Response) => {
@@ -21,7 +21,7 @@ export const postItem = async (req: Request, res: Response) => {
 		};
 
 		const postProduct = await axios.post(
-			`https://3fvhxt-ch.myshopify.com/admin/api/2025-01/products.json`,
+			`${SHOPIFY_STORE}/admin/api/2025-01/products.json`,
 			productData,
 			{
 				headers: {
